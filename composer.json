@@ -1,0 +1,25 @@
+{
+    "name": "codus/fns-api",
+    "description": "PHP API для проверки и получения фискальных чеков через официальное API ФНС России.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mark Khromov",
+            "email": "lane.71rus@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.3",
+        "ext-json": "*",
+        "ext-soap": "*",
+        "ext-simplexml": "*",
+        "nesbot/carbon": "^2.39"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codus\\FNSApi\\": ""
+        }
+    }
+}
