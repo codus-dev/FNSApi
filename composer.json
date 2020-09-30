@@ -15,7 +15,7 @@
         "ext-json": "*",
         "ext-soap": "*",
         "ext-simplexml": "*",
-        "nesbot/carbon": "^2.39"
+        "nesbot/carbon": "^2.0"
     },
     "autoload": {
         "psr-4": {
