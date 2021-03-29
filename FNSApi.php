@@ -60,7 +60,7 @@ final class FNSApi
         $response = $client->__soapCall('GetMessage', [$object]);
         if ($response->ProcessingStatus == 'COMPLETED') {
             $checkTicketResponse = new SimpleXMLElement($response->Message->any);
-            $result = $checkTicketResponse->children('tns', true)->Result;
+            $result = $checkTicketResponse->Result;
             return CheckTicketResponse::create($response->ProcessingStatus, CheckTicketResult::create(intval($result->Code->__toString()), $result->Message->__toString()));
         }
         return CheckTicketResponse::create($response->ProcessingStatus);
@@ -82,7 +82,7 @@ final class FNSApi
         $response = $client->__soapCall('GetMessage', [$object]);
         if ($response->ProcessingStatus == 'COMPLETED') {
             $getTicketResponse = new SimpleXMLElement($response->Message->any);
-            $result = $getTicketResponse->children('tns', true)->Result;
+            $result = $getTicketResponse->Result;
             $code = intval($result->Code->__toString());
             $message = null;
             $ticket = null;
