@@ -38,7 +38,7 @@ final class FNSApi
             $message = $this->getRequestMessage(new AuthRequest($this->token));
             $response = $client->__soapCall('GetMessage', [$message]);
             $authResponse = new SimpleXMLElement($response->Message->any);
-            $result = $authResponse->children('tns', true)->Result;
+            $result = $authResponse->children('ns2', true)->Result;
             $this->temporaryToken = TemporaryToken::create($result->Token->__toString(), Carbon::createFromTimeString($result->ExpireTime->__toString()));
         }
         return $this->temporaryToken;
