@@ -98,11 +98,12 @@ final class FNSApi
 
     private function createClient()
     {
+        if ($this->temporaryToken == null || $this->temporaryToken->getExpireTime() < Carbon::now()) {
+            $this->temporaryToken = null;
+            $this->client == null;
+            $this->getTemporaryToken();
+        }
         if ($this->client == null) {
-            if ($this->temporaryToken == null || $this->temporaryToken->getExpireTime() < Carbon::now()) {
-                $this->temporaryToken = null;
-                $this->getTemporaryToken();
-            }
             $this->client = new SoapClient($this->server . '/open-api/ais3/KktService/0.1?wsdl', [
                 'stream_context' => stream_context_create([
                     'http' => [
