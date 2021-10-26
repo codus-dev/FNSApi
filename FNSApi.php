@@ -100,7 +100,7 @@ final class FNSApi
     {
         if ($this->temporaryToken == null || $this->temporaryToken->getExpireTime() < Carbon::now()) {
             $this->temporaryToken = null;
-            $this->client == null;
+            $this->client = null;
             $this->getTemporaryToken();
         }
         if ($this->client == null) {
